@@ -10,6 +10,6 @@ function camelize(str) {
     let c = word[0].toUpperCase() + word.slice(1);
     return c;
   }
-}) 
+})
  return i.join('');
 }

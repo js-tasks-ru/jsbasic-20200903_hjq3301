@@ -4,6 +4,12 @@
  * @param {number} age - максимальный возраст
  * @returns {string}
  */
+
 function showSalary(users, age) {
-  // ваш код...
+  const n = users.filter(function (i) {
+    return users.age >= 40;
+  }).map(function (i) {
+    return `${users.name},${users.balance}`
+  });
+  return
 }
