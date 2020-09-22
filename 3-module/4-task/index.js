@@ -6,10 +6,8 @@
  */
 
 function showSalary(users, age) {
-  const n = users.filter(function (i) {
-    return users.age >= 40;
-  }).map(function (i) {
-    return `${users.name},${users.balance}`
-  });
-  return
-}
+  return users
+    .filter((item) => item.age <= age)
+    .map((item) => `${item.name}, ${item.balance}`)
+    .join('\n');
+};
