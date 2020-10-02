@@ -7,19 +7,18 @@ function highlight(table) {
 
   elements.forEach(function(item) {
     if(item.dataset.available === "true"){
-        item.classList.add('available')
+        item.parentElement.classList.add('available')
     } else if (item.dataset.available === "false") {
-        item.classList.add('unavailable')
+        item.parentElement.classList.add('unavailable')
     } else {
-        table.rows[4].cells[3].setAttribute('hidden', 'true');
-        // Ну понятно что тут ошибка, но не понимаю как сделать.
+        item.parentNode.setAttribute('hidden', 'true');
         if (item.innerHTML === "m") {
-            item.classList.add('male')
+            item.parentElement.classList.add('male')
         } else if (item.innerHTML === "f") {
-            item.classList.add('female')
+            item.parentElement.classList.add('female')
         }
         if (item.innerHTML < 18) {
-            item.style.textDecoration = "line-through"
+            item.parentElement.style.textDecoration = "line-through"
         } else {
         }
     }
