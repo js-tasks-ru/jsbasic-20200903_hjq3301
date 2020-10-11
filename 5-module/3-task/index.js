@@ -1,23 +1,38 @@
 function initCarousel() {
-  const right = document.querySelector('.carousel__arrow_right');
-  const left = document.querySelector('.carousel__arrow_left');
-  const carousel = document.querySelector('.carousel__inner')
-  let computedStyle = getComputedStyle(carousel)
-  position = 0;
-  left.style.display = 'none';
+  const rightBtn = document.querySelector('.carousel__arrow_right');
+  const leftBtn = document.querySelector('.carousel__arrow_left');
+  const carousel = document.querySelector('.carousel__inner');
+  let slidePositon = carousel.offsetWidth;
+  let position = 0;
 
-  
-
-  right.addEventListener( "click" , function() {
-      left.style.display = 'flex';
-      carousel.style.transform = 'translateX(-988px)'
-      });
-
-
-  left.addEventListener( "click" , function() {
-    carousel.style.transform = 'translateX(0)'
-    left.style.display = 'none';
-    console.log(computedStyle.transform);
+  rightBtn.addEventListener( "click" , function() {
+      position -= slidePositon;
+      movePositon();
+      hideBtn();
   });
 
+  leftBtn.addEventListener( "click" , function() {
+      position += slidePositon;
+      movePositon();
+      hideBtn();
+  });
+
+  const movePositon = () => {
+    carousel.style.transform = `translateX(${position}px)`
+  }
+
+  const hideBtn = () => {
+    if (position === 0) {
+      leftBtn.style.display = 'none'
+    } else {
+      leftBtn.style.display = 'flex'
+    };
+    
+    if (position === -2964) {
+      rightBtn.style.display = 'none'
+    } else {
+      rightBtn.style.display = 'flex'
+    }
+  }
+  hideBtn();
 }
