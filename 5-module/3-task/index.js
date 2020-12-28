@@ -5,34 +5,35 @@ function initCarousel() {
   let slidePositon = carousel.offsetWidth;
   let position = 0;
 
-  rightBtn.addEventListener( "click" , function() {
-      position -= slidePositon;
-      movePositon();
-      hideBtn();
+  rightBtn.addEventListener("click", function() {
+    position -= slidePositon;
+    movePositon();
+    hideBtn();
   });
 
-  leftBtn.addEventListener( "click" , function() {
-      position += slidePositon;
-      movePositon();
-      hideBtn();
+  leftBtn.addEventListener("click", function() {
+    position += slidePositon;
+    movePositon();
+    hideBtn();
   });
 
   const movePositon = () => {
-    carousel.style.transform = `translateX(${position}px)`
-  }
+    console.log(position);
+    carousel.style.transform = `translateX(${position}px)`;
+  };
 
   const hideBtn = () => {
     if (position === 0) {
-      leftBtn.style.display = 'none'
+      leftBtn.style.display = 'none';
     } else {
-      leftBtn.style.display = 'flex'
-    };
+      leftBtn.style.display = 'flex';
+    }
     
     if (position === -2964) {
-      rightBtn.style.display = 'none'
+      rightBtn.style.display = 'none';
     } else {
-      rightBtn.style.display = 'flex'
+      rightBtn.style.display = 'none';
     }
-  }
+  };
   hideBtn();
 }
