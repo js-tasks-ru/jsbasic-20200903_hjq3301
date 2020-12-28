@@ -1,39 +1,50 @@
 function initCarousel() {
-  const rightBtn = document.querySelector('.carousel__arrow_right');
-  const leftBtn = document.querySelector('.carousel__arrow_left');
-  const carousel = document.querySelector('.carousel__inner');
-  let slidePositon = carousel.offsetWidth;
-  let position = 0;
+  const carousel = document.querySelector('.carousel');
+  const wrapper = carousel.querySelector('.carousel__inner');
+  const slides = [].slice.call(carousel.querySelectorAll('.carousel__slide'));
+  const arrows = carousel.querySelectorAll('.carousel__arrow');
+  const arrowPrev = carousel.querySelector('.carousel__arrow_left');
+  const arrowNext = carousel.querySelector('.carousel__arrow_right');
+  let step = slides[0].offsetWidth;
+  let shift = 0;
+  let currentSlide = 0;
+  let reachedEnd = false;
+  let reachedStart = true;
 
-  rightBtn.addEventListener("click", function() {
-    position -= slidePositon;
-    movePositon();
-    hideBtn();
+  arrowPrev.style.display = 'none';
+
+  for (let i = 0; i < arrows.length; i++) {
+    arrows[i].addEventListener('click', function(e) {
+      if (e.currentTarget === arrowNext && reachedEnd === false) {
+        currentSlide++;
+      } else if (e.currentTarget === arrowPrev && reachedStart === false) {
+        currentSlide--;
+      }
+
+      shift = -currentSlide * step;
+
+      if (shift === 0) {
+        reachedStart = true;
+        arrowPrev.style.display = 'none';
+      } else {
+        reachedStart = false;
+        arrowPrev.style.display = '';
+      }
+
+      if (shift === 0 - (slides.length - 1) * step && shift !== 0) {
+        reachedEnd = true;
+        arrowNext.style.display = 'none';
+      } else {
+        reachedEnd = false;
+        arrowNext.style.display = '';
+      }
+      wrapper.style.transform = `translateX(${shift}px)`;
+    });
+  }
+
+  window.addEventListener('resize', function () {
+    step = carousel.offsetWidth;
+    shift = -currentSlide * step;
+    wrapper.style.transform = `translateX(${shift}px)`;
   });
-
-  leftBtn.addEventListener("click", function() {
-    position += slidePositon;
-    movePositon();
-    hideBtn();
-  });
-
-  const movePositon = () => {
-    console.log(position);
-    carousel.style.transform = `translateX(${position}px)`;
-  };
-
-  const hideBtn = () => {
-    if (position === 0) {
-      leftBtn.style.display = 'none';
-    } else {
-      leftBtn.style.display = 'flex';
-    }
-    
-    if (position === -2964) {
-      rightBtn.style.display = 'none';
-    } else {
-      rightBtn.style.display = 'none';
-    }
-  };
-  hideBtn();
 }
