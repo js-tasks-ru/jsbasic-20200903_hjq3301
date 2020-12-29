@@ -1,0 +1,14 @@
+.hide-self-button {
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid #bada55;
+}
+
+.hide-self-button:active {
+  background-color: #cfcccc;
+}
+
+body {
+  padding-top: 50px;
+  padding-left: 50px;
+}
