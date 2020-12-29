@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Очищаемая таблица</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <h2>Пример минимально необходимой структуры таблицы (только HTML) для прохождения тестов:</h1>
+  <div class="example">
+    <table>
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Возраст</th>
+          <th>Зарплата</th>
+          <th>Город</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ilia</td>
+          <td>25</td>
+          <td>1000</td>
+          <td>Petrozavodsk</td>
+          <td><button>X</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Результат выполнения вашего кода:</h2>
+
+  <script type="module">
+    import UserTable from './index.js';
+
+    let rows = [
+      {
+        name: 'Ilia',
+        age: 25,
+        salary: 1000,
+        city: 'Petrozavodsk'
+      },
+      {
+        name: 'Vasya',
+        age: 14,
+        salary: 1500,
+        city: 'Moscow'
+      },
+      {
+        name: 'Ivan',
+        age: 22,
+        salary: 100,
+        city: 'Bryansk'
+      },
+      {
+        name: 'Petya',
+        age: 45,
+        salary: 990,
+        city: 'Chita'
+      }
+    ];
+
+    let table = new UserTable(rows);
+    document.body.append(table.elem);
+
+  </script>
+</body>
+
+</html>
