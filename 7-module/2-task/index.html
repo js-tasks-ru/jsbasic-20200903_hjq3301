@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бангкок Экспресс: Модальное окно</title>
+
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="/assets/styles/common.css" />
+</head>
+
+<body>
+  <script type="module">
+    import Modal from './index.js';
+    import createElement from '../../assets/lib/create-element.js';
+
+    window.openModal = () => {
+      let modal = new Modal();
+      modal.setTitle('Modal Title');
+      modal.setBody(createElement('<div>Тело модального окна</div>'));
+
+      modal.open();
+    }
+  </script>
+
+  <div class="container">
+    <button class='button' onclick="openModal()" style="background: white; color: black;padding: 10px">
+      Нажми меня, чтобы открыть модальное окно
+    </button>
+  </div>
+
+
+</body>
+
+</html>
