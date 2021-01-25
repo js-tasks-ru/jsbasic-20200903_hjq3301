@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бангкок Экспресс: Иконка корзины</title>
+
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./product-grid.css" />
+  <link rel="stylesheet" href="/assets/styles/common.css" />
+</head>
+
+<body>
+  <header class="header container">
+    <h1 class="heading logo">Бангкок Экспресс</h1>
+    <h3 class="subheading">Отличная еда・Бесплатная доставка・Лучшие цены</h3>
+
+    <div data-cart-icon-holder>
+      <!--СЮДА ВСТАВЛЯЕТСЯ CART-ICON-->
+    </div>
+  </header>
+
+  <main>
+    <div class="container" style="padding-bottom: 40px;">
+      <h2 class="section-heading">Наше Меню</h2>
+
+      <div>
+        <button class="button" data-add-product>Добавить один товар</button>
+      </div>
+
+      <div style="padding-top: 40px;">
+        <button class="button" data-remove-all-products>Удалить все товары</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="products-grid is-loading">
+        <div class="products-grid__skeleton">
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+        </div>
+
+        <div class="products-grid__inner"></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import CartIcon from './index.js';
+
+    let product = {
+      price: 7,
+      count: 1,
+    }
+
+    let cart = {
+      products: [],
+
+      isEmpty() {
+        return this.products.length === 0;
+      },
+
+      getTotalCount() {
+        return this.products.length;
+      },
+
+      getTotalPrice() {
+        return this.products.reduce((totalPrice, product) => totalPrice + product.price, 0);
+      }
+    }
+
+    let cartIcon = new CartIcon();
+    let cartIconHolder = document.querySelector('[data-cart-icon-holder]');
+    cartIconHolder.append(cartIcon.elem);
+
+    let addProductButton = document.querySelector('[data-add-product]');
+    let removeAllProductsButton = document.querySelector('[data-remove-all-products]');
+
+    addProductButton.onclick = () => {
+      let productToAdd = Object.assign({}, product);
+      cart.products.push(productToAdd);
+
+      cartIcon.update(cart);
+    };
+
+    removeAllProductsButton.onclick = () => {
+      cart.products = [];
+
+      cartIcon.update(cart);
+    };
+
+  </script>
+</body>
+
+</html>
