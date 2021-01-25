@@ -1,0 +1,75 @@
+.products-grid .products-grid__inner {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, calc(33.3333% - 14px));
+}
+
+.products-grid.is-loading .products-grid__inner {
+  display: none;
+}
+
+@media all and (max-width: 767px) {
+  .products-grid .products-grid__inner {
+    display: block;
+    padding: 16px;
+    background-color: var(--color-black-light);
+  }
+}
+
+.products-grid .products-grid__skeleton {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, calc(33.3333% - 14px));
+}
+
+.products-grid .products-grid__skeleton {
+  display: none;
+}
+
+.products-grid.is-loading .products-grid__skeleton {
+  display: grid;
+  pointer-events: none;
+}
+
+.products-grid.is-loading .products-grid__skeleton-item {
+  position: relative;
+  height: var(--card-height);
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s all;
+}
+
+.products-grid.is-loading .products-grid__skeleton-item:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: var(--color-black-middle);
+}
+
+.products-grid.is-loading .products-grid__skeleton-item:after {
+  content: "";
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -32px;
+  margin-left: -32px;
+  top: 50%;
+  left: 50%;
+  background: url(/assets/images/icons/loader-icon.svg) center no-repeat;
+  background-size: cover;
+  animation: loadingSpinner 1s infinite linear;
+}
+
+
+
