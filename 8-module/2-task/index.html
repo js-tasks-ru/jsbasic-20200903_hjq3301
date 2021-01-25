@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бангкок Экспресс: Иконка корзины</title>
+
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="../../../6-module/2-task/index.css">
+  <link rel="stylesheet" href="/assets/styles/common.css" />
+</head>
+
+<style>
+  .controls {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 5px solid var(--color-yellow);
+  }
+
+  .controls__row {
+    margin-top: 10px;
+  }
+</style>
+
+<body>
+  <div class="container controls">
+    <div class="controls__row">
+      <label class="subheading">
+        <input type="checkbox" data-no-nuts> No Nuts
+      </label>
+    </div>
+
+    <div class="controls__row">
+      <label class="subheading">
+        <input type="checkbox" data-vegetarian-only> Vegetarian Only
+      </label>
+    </div>
+
+    <div class="controls__row">
+      <label class="subheading">
+        <input type="checkbox" data-max-spiciness> Показать товары с максимальной остротой "2"
+      </label>
+    </div>
+
+    <div class="controls__row">
+      <label class="subheading">
+        <input type="checkbox" data-category> Показать товары категории "soups"
+      </label>
+    </div>
+  </div>
+
+  <div class="container" id="container"></div>
+
+  <script type="module">
+    import ProductGrid from './index.js';
+    import products from './products.js';
+
+    let productGrid = new ProductGrid(products);
+
+    container.append(productGrid.elem);
+
+    let noNutsControl = document.querySelector('[data-no-nuts]');
+    noNutsControl.addEventListener('change', () => {
+      productGrid.updateFilter({ noNuts: event.target.checked });
+    });
+
+    let vegetarianOnlyControl = document.querySelector('[data-vegetarian-only]');
+    vegetarianOnlyControl.addEventListener('change', () => {
+      productGrid.updateFilter({ vegeterianOnly: event.target.checked });
+    });
+
+    let maxSpicinessControl = document.querySelector('[data-max-spiciness]');
+    maxSpicinessControl.addEventListener('change', () => {
+      if (event.target.checked) {
+        productGrid.updateFilter({ maxSpiciness: 2 });
+      } else {
+        productGrid.updateFilter({ maxSpiciness: 4 });
+      }
+    });
+
+    let categoryControl = document.querySelector('[data-category]');
+    categoryControl.addEventListener('change', () => {
+      if (event.target.checked) {
+        productGrid.updateFilter({ category: 'soups' });
+      } else {
+        productGrid.updateFilter({ category: '' });
+      }
+    });
+
+  </script>
+</body>
+
+</html>
