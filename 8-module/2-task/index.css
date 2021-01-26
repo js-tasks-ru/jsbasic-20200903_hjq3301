@@ -1,0 +1,19 @@
+.products-grid .products-grid__inner {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, calc(33.3333% - 14px));
+}
+
+.products-grid.is-loading .products-grid__inner {
+  display: none;
+}
+
+@media all and (max-width: 767px) {
+  .products-grid .products-grid__inner {
+    display: block;
+    padding: 16px;
+    background-color: var(--color-black-light);
+  }
+}
+
+@import '../product-grid-skeleton/index.css';
