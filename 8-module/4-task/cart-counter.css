@@ -1,0 +1,24 @@
+.cart-counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 125px;
+  padding: 24px;
+}
+
+.cart-counter__button {
+  cursor: pointer;
+  display: inline-block;
+  max-width: 28px;
+}
+
+.cart-counter__count {
+  display: inline-block;
+  padding: 0 14px;
+  font-family: var(--font-primary), sans-serif;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--color-body);
+}

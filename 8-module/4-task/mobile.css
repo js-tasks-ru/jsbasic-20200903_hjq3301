@@ -1,0 +1,34 @@
+@media all and (max-width: 767px) {
+  .cart-product {
+    align-items: unset;
+  }
+
+  .cart-product__price-wrap {
+    width: 100%;
+  }
+
+  .cart-product__info {
+    flex-direction: column;
+    padding: 16px 24px;
+  }
+
+  .cart-product__title {
+    padding: 0 0 16px;
+  }
+
+  .cart-product__price {
+    padding: 0 0 0 16px;
+  }
+
+  .cart-product__img {
+    max-width: 120px;
+  }
+
+  .counter-counter {
+    padding: 0;
+  }
+
+  .cart-buttons {
+    padding: 32px 24px 0;
+  }
+}
