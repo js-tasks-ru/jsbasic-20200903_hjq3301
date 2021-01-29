@@ -15,6 +15,7 @@ export default class Main {
   constructor() {
     this.dataCarouselHolder = document.querySelector('[data-carousel-holder]');
     this.dataSliderHolder = document.querySelector('[data-slider-holder]');
+    this.dataRibbonHolder = document.querySelector('[data-ribbon-holder]');
     this.dataCartIconHolder = document.querySelector('[data-cart-icon-holder]');
     this.dataProductsGridHolder = document.querySelector('[data-products-grid-holder]');
 
@@ -30,7 +31,7 @@ export default class Main {
 
   async render() {
     this.dataCarouselHolder.append(this.carousel.elem);
-    this.dataCarouselHolder.append(this.ribbonMenu.elem);
+    this.dataRibbonHolder.append(this.ribbonMenu.elem);
     this.dataSliderHolder.append(this.stepSlider.elem);
     this.dataCartIconHolder.append(this.cartIcon.elem);
     
