@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бангкок Экспресс</title>
+
+  <link rel="stylesheet" href="/assets/styles/common.css" />
+  <link rel="stylesheet" href="./all.css">
+
+  <script type="module">
+    import Main from './index.js';
+
+    let main = new Main();
+
+    main.render()
+      .then(() => console.log('Страница готова!'));
+  </script>
+</head>
+
+<body>
+  <header class="header container">
+    <!-- the font does not support cyrillic -->
+    <h1 class="heading logo">Bangkok Express</h1>
+    <h3 class="subheading">Great food・Free delivery・Fair price</h3>
+
+    <div data-cart-icon-holder>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" data-carousel-holder></div>
+
+    <div class="container">
+      <h2 class="section-heading">
+        Our Menu
+      </h2>
+      <div data-ribbon-holder></div>
+    </div>
+
+    <div class="container">
+      <div class="filters">
+        <div class="filters__inner">
+          <div class="filters__group">
+            <label class="filters__label">Max spiciness</label>
+            <div class="filters__slider" data-slider-holder></div>
+          </div>
+          <div class="filters__group">
+            <div class="filters__checkbox">
+              <input
+                class="styled-checkbox"
+                id="nuts-checkbox"
+                type="checkbox"
+                value="1"
+              >
+              <label for="nuts-checkbox">
+                <span class="filters__label">No nuts</span>
+              </label>
+            </div>
+          </div>
+          <div class="filters__group">
+            <div class="filters__checkbox">
+              <input
+                class="styled-checkbox"
+                id="vegeterian-checkbox"
+                type="checkbox"
+                value="1"
+              >
+              <label for="vegeterian-checkbox">
+                <span class="filters__label">Vegeterian only</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" data-products-grid-holder>
+      <div class="products-grid is-loading">
+        <div class="products-grid__skeleton">
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+          <div class="products-grid__skeleton-item"></div>
+        </div>
+        <div class="products-grid__inner"></div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
