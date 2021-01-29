@@ -1,0 +1,22 @@
+/* Carousel */
+@import '../../6-module/3-task/index.css';
+
+/* RibbonMenu */
+@import '../../7-module/1-task/index.css';
+
+/* StepSlider */
+@import '../../7-module/4-task/index.css';
+
+/* ProductCard */
+@import '../../6-module/2-task/index.css';
+/* ProductsGrid */
+@import '../../8-module/2-task/index.css';
+
+/* Modal */
+@import '../../7-module/2-task/index.css';
+/* CartIcon */
+@import '../../8-module/1-task/index.css';
+/* Cart */
+@import '../../8-module/4-task/index.css';
+
+@import './filters.css'
