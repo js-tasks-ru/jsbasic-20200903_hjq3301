@@ -160,10 +160,9 @@ export default class Cart {
       this.modalBody.querySelector(
         `[data-product-id="${product.id}"] .cart-product__price`
       ).innerHTML = "€" + (count * product.price).toFixed(2);
-
-      this.modalBody.querySelector(".cart-buttons__info-price").innerHTML =
-        "€" + (count * product.price).toFixed(2);
     }
+    this.modalBody.querySelector(".cart-buttons__info-price").innerHTML =
+    "€" + (count * product.price).toFixed(2);
   }
 
   async onSubmit(event) {
