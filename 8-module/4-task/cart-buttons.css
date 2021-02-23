@@ -1,0 +1,49 @@
+.cart-buttons {
+  padding: 48px 80px 0;
+  text-align: center;
+}
+
+.cart-buttons__button {
+  padding-right: 54px !important;
+}
+
+.cart-buttons__button:after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: url("/assets/images/icons/angle-sm-icon.svg") center no-repeat;
+  background-size: cover;
+  width: 10px;
+  height: 18px;
+}
+
+.cart-buttons__button.is-loading:after {
+  position: absolute;
+  top: 22px;
+  right: 16px;
+}
+
+.cart-buttons__info {
+  padding: 11px 14px 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-body);
+  font-family: var(--font-primary), sans-serif;
+  background-color: var(--color-pink);
+}
+
+.cart-buttons__info-text {
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.cart-buttons__info-price {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 500;
+}
