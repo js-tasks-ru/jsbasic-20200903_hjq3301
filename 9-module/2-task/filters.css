@@ -1,0 +1,179 @@
+.filters {
+  padding: 16px;
+  border: 16px solid var(--color-black-light);
+  border-bottom: none;
+  color: var(--color-grey);
+}
+
+.filters__inner {
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+}
+
+.filters__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 26px;
+}
+
+.filters__group:last-child {
+  margin-bottom: 0;
+}
+
+.filters__label {
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: var(--font-primary);
+}
+
+.filters__slider {
+  position: relative;
+  padding: 7px 0 32px;
+  margin: 12px 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.filters__slider:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 16px;
+  height: 17px;
+  background: url(/assets/images/icons/pepper-icon.svg) center no-repeat;
+  background-size: cover;
+  display: none;
+}
+
+.filters__slider:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 48px;
+  height: 17px;
+  background: url(/assets/images/icons/pepper-icon.svg) center repeat;
+  display: none;
+}
+
+.filters__checkbox {
+  position: relative;
+  display: flex;
+}
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.styled-checkbox + label {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.styled-checkbox + label span {
+  vertical-align: middle;
+}
+
+.styled-checkbox + label:before {
+  content: "";
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  background: var(--color-black-dark);
+  border: 2px solid #8d8a73;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.styled-checkbox:hover + label:before,
+.styled-checkbox:checked + label:before {
+  border-color: var(--color-grey);
+}
+
+.styled-checkbox:disabled + label {
+  color: #b8b8b8;
+  cursor: auto;
+}
+
+.styled-checkbox:disabled + label:before {
+  background: #ddd;
+}
+
+.styled-checkbox:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 5px;
+  width: 12px;
+  height: 11px;
+  background: url(/assets/images/icons/check-icon.svg) center no-repeat;
+  background-size: cover;
+}
+
+@media all and (min-width: 768px) {
+  .filters {
+    border: 2px solid var(--color-black-light);
+    margin-bottom: 24px;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .filters {
+    height: 80px;
+    padding: 20px 34px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .filters__inner {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .filters__group {
+    display: inline-flex;
+    flex-direction: row;
+    margin-bottom: 0;
+    margin-right: 32px;
+  }
+
+  .filters__group:last-child {
+    margin-right: 0;
+  }
+
+  .filters__slider {
+    padding: 7px 48px 0 16px;
+    margin: -4px 19px 0;
+  }
+
+  .filters__slider:before {
+    top: 50%;
+    transform: translate(0, -50%);
+    display: block;
+  }
+
+  .filters__slider:after {
+    top: 50%;
+    transform: translate(0, -50%);
+    display: block;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
